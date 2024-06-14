@@ -1,0 +1,7 @@
+streamlit
+pandas
+numpy
+sklearn import linear_model
+sklearn.model_selectio
+datetime 
+geopy
