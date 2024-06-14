@@ -80,7 +80,8 @@ linear_regression = linear_model.LinearRegression()
 linear_regression.fit(X_train, y_train)
 st.image('logo.png', use_column_width=True)
 # Xây dựng giao diện với Streamlit
-st.title('Dự đoán giá nhà ở Hồ Chí Minh')
+st.set_page_config(page_title="Dự đoán giá nhà ở Hồ Chí Minh", page_icon=r"Prediction.jpg")
+
 import streamlit as st
 
 # Tiêu đề trên sidebar
