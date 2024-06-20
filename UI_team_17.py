@@ -27,8 +27,9 @@ header {
 }
 </style>
 """
-st.title("Chương trình dự đoán giá nhà ở Thành Phố Hồ Chí Minh")
+
 st.set_page_config(page_title="Dự đoán giá nhà ở Hồ Chí Minh", page_icon="logo.png")
+st.title("Chương trình dự đoán giá nhà ở Thành Phố Hồ Chí Minh")
 st.markdown(hide_elements_css, unsafe_allow_html=True)
 
 st.image("Nen.webp")
