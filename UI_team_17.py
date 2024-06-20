@@ -87,7 +87,7 @@ st.sidebar.markdown("""
 # Nhập các biến số từ người dùng
 area = st.number_input('Diện Tích:', min_value=0.0, step=0.1)
 floors = st.number_input('Số tầng:', min_value=0, step=1)
-date_posted = st.date_input('Ngày đăng')
+date_posted = st.date_input('Ngày mua/bán')
 rooms = st.number_input('Số phòng', min_value=0)
 amenities_rating = st.slider('Mức độ tiện nghi:', min_value=0, max_value=6, value=2)
 
