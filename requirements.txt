@@ -4,3 +4,4 @@ numpy
 scikit-learn
 datetime 
 geopy
+xgboost
