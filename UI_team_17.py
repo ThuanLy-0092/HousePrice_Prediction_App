@@ -27,9 +27,7 @@ header {
 }
 </style>
 """
-
 st.set_page_config(page_title="Dự đoán giá nhà ở Hồ Chí Minh", page_icon="logo.png")
-st.title("Chương trình dự đoán giá nhà ở Thành Phố Hồ Chí Minh")
 st.markdown(hide_elements_css, unsafe_allow_html=True)
 
 st.image("Nen.webp")
@@ -40,7 +38,7 @@ def haversine(lon1, lat1, lon2, lat2):
 
     # Công thức Haversine
     dlon = lon2 - lon1
-    dlat = lat2 - lat1
+    dlat = lon2 - lat2
     a = np.sin(dlat/2)**2 + np.cos(lat1) * np.cos(lat2) * np.sin(dlon/2)**2
     c = 2 * np.arcsin(np.sqrt(a))
 
@@ -60,11 +58,9 @@ database = pd.read_csv("data_base.csv")
 database['Date Posted'] = pd.to_datetime(database['Date Posted'])
 min_date = database['Date Posted'].min()
 
-data = pd.read_csv("clean_data.csv")
-X = data.drop(['Price'], axis=1)
-y = data['Price']
-
-# Load mô hình XGBoost từ file
+# Load scaler và mô hình từ file
+with open('scaler.pkl', 'rb') as f:
+    scaler = pickle.load(f)
 with open('best_gb_model.pkl', 'rb') as f:
     xgb_model = pickle.load(f)
 
@@ -89,7 +85,7 @@ st.sidebar.markdown("""
 # Nhập các biến số từ người dùng
 area = st.number_input('Diện Tích:', min_value=0.0, step=0.1)
 floors = st.number_input('Số tầng:', min_value=0, step=1)
-date_posted = st.date_input('Ngày muốn mua/bán')
+date_posted = st.date_input('Ngày đăng')
 rooms = st.number_input('Số phòng', min_value=0)
 amenities_rating = st.slider('Mức độ tiện nghi:', min_value=0, max_value=6, value=2)
 
@@ -145,8 +141,11 @@ if st.button('Xác nhận'):
         'Distance_to_center': [distance_to_center],
     })
 
+    # Chuẩn hóa dữ liệu đầu vào
+    input_data_scaled = scaler.transform(input_data)
+
     # Dự đoán sử dụng mô hình XGBoost đã tải
-    prediction = xgb_model.predict(input_data)[0]
+    prediction = xgb_model.predict(input_data_scaled)[0]
 
     # Hiển thị dự đoán trên giao diện
     st.subheader(f'Dự đoán giá nhà: {prediction:.2f} tỷ')
