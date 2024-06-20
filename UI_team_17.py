@@ -79,6 +79,8 @@ st.sidebar.markdown("""
 - **Lý Vĩnh Thuận**
 - **Nguyễn Nhựt Trường**
 - **Từ Thức**
+
+### Mô hình được sử dụng: XGBoost 
                     
 """)
 
