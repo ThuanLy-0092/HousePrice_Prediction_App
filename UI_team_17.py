@@ -123,7 +123,7 @@ if st.button('Xác nhận'):
     days_since_min = (date_posted - min_date).days
 
     # Hiển thị thông tin xác nhận
-    st.write(f"Diện tích: {area}")
+    st.write(f"Diện tích: {area}m2")
     st.write(f"Số tầng: {floors}")
     st.write(f"Ngày đăng: {date_posted}")
     st.write(f"Số phòng: {rooms}")
