@@ -80,7 +80,9 @@ st.sidebar.markdown("""
 - **Nguyễn Nhựt Trường**
 - **Từ Thức**
 
-### Mô hình được sử dụng: XGBoost 
+### Mô hình được sử dụng: XGBoost.
+
+### Thông số mô hình: https://bestmodel-team17.streamlit.app/
                     
 """)
 
