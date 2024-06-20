@@ -131,7 +131,7 @@ if st.button('Xác nhận'):
 
     # Tính toán khoảng cách tới trung tâm Quận 1 nếu có dữ liệu quận được chọn
     if not filtered_data.empty:
-        st.write(f"Khoảng cách tới trung tâm Quận 1: {distance_to_center:.2f} km")
+        st.write(f"Khoảng cách tới trung tâm Quận 1: {distance_to_center} km")
 
     # Tạo DataFrame từ dữ liệu đầu vào
     input_data = pd.DataFrame({
