@@ -79,6 +79,9 @@ st.sidebar.markdown("""
 - **Lý Vĩnh Thuận**
 - **Nguyễn Nhựt Trường**
 - **Từ Thức**
+
+### Mô hình được sử dụng: XGBoost-tuned
+### Chi tiết: https://bestmodel-team17.streamlit.app/
                     
 """)
 
