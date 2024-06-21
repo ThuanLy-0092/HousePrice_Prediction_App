@@ -54,7 +54,7 @@ center_latitude = 10.776111
 data_district = pd.read_csv("https://raw.githubusercontent.com/ThuanLy-0092/Test/main/Geocoded_district.csv")
 
 # Đọc dữ liệu cơ sở dữ liệu và chuẩn bị mô hình
-database = pd.read_csv("https://raw.githubusercontent.com/ThuanLy-0092/HousePrice_Prediction_Project/main/clean_data.csv")
+database = pd.read_csv("data_base.csv")
 database['Date Posted'] = pd.to_datetime(database['Date Posted'])
 min_date = database['Date Posted'].min()
 
