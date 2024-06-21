@@ -113,9 +113,14 @@ if not filtered_data.empty:
 
 # Biến trạng thái để điều khiển quá trình hiển thị giao diện và dự đoán
 show_prediction = False
+# Kiểm tra trạng thái của nút xác nhận trong session state
+if 'confirm_button_clicked' not in st.session_state:
+    st.session_state.confirm_button_clicked = False
 
 # Nút bấm xác nhận
 if st.button('Xác nhận'):
+    st.session_state.confirm_button_clicked = True
+
     # Chuyển đổi ngày đăng thành số ngày từ mốc min_date
     date_posted = pd.to_datetime(date_posted)
     days_since_min = (date_posted - min_date).days
@@ -149,6 +154,10 @@ if st.button('Xác nhận'):
 
     # Hiển thị dự đoán trên giao diện
     st.subheader(f'Dự đoán giá nhà: {prediction:.2f} tỷ')
-if st.button('Đừng bấm vào nghe'):
-    st.video("Dung_bam_vao_nghe.mp4")
+
+# Nút bấm phát video chỉ hiển thị nếu nút xác nhận đã được nhấn
+if st.session_state.confirm_button_clicked:
+    if st.button('Đừng bấm vào nghe'):
+        # Phát video từ file
+        st.video("Dung_bam_vao_nghe.mp4")
     
