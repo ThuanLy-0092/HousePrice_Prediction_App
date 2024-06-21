@@ -79,17 +79,13 @@ st.sidebar.markdown("""
 - **Lý Vĩnh Thuận**
 - **Nguyễn Nhựt Trường**
 - **Từ Thức**
-
-### Mô hình được sử dụng: XGBoost.
-
-### Thông số mô hình: https://bestmodel-team17.streamlit.app/
                     
 """)
 
 # Nhập các biến số từ người dùng
 area = st.number_input('Diện Tích:', min_value=0.0, step=0.1)
 floors = st.number_input('Số tầng:', min_value=0, step=1)
-date_posted = st.date_input('Ngày mua/bán')
+date_posted = st.date_input('Ngày đăng')
 rooms = st.number_input('Số phòng', min_value=0)
 amenities_rating = st.slider('Mức độ tiện nghi:', min_value=0, max_value=6, value=2)
 
@@ -125,7 +121,7 @@ if st.button('Xác nhận'):
     days_since_min = (date_posted - min_date).days
 
     # Hiển thị thông tin xác nhận
-    st.write(f"Diện tích: {area}m2")
+    st.write(f"Diện tích: {area}")
     st.write(f"Số tầng: {floors}")
     st.write(f"Ngày đăng: {date_posted}")
     st.write(f"Số phòng: {rooms}")
@@ -133,7 +129,7 @@ if st.button('Xác nhận'):
 
     # Tính toán khoảng cách tới trung tâm Quận 1 nếu có dữ liệu quận được chọn
     if not filtered_data.empty:
-        st.write(f"Khoảng cách tới trung tâm Quận 1: {distance_to_center:.2f} km")
+        st.write(f"Khoảng cách tới trung tâm Quận 1: {distance_to_center} km")
 
     # Tạo DataFrame từ dữ liệu đầu vào
     input_data = pd.DataFrame({
@@ -154,5 +150,5 @@ if st.button('Xác nhận'):
     # Hiển thị dự đoán trên giao diện
     st.subheader(f'Dự đoán giá nhà: {prediction:.2f} tỷ')
     if st.button('Đừng bấm vào nghe'):
-      st.video("Dung_bam_vao_nghe.mp4")
-  
+        st.video("Dung_bam_vao_nghe.mp4")
+    
