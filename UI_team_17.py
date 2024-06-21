@@ -153,3 +153,6 @@ if st.button('Xác nhận'):
 
     # Hiển thị dự đoán trên giao diện
     st.subheader(f'Dự đoán giá nhà: {prediction:.2f} tỷ')
+    if st.button('Đừng bấm vào nghe'):
+      st.video("Dung_bam_vao_nghe.mp4")
+  
