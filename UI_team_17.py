@@ -29,7 +29,7 @@ header {
 """
 st.set_page_config(page_title="Dự đoán giá nhà ở Hồ Chí Minh", page_icon="logo.png")
 st.markdown(hide_elements_css, unsafe_allow_html=True)
-
+st.title("Chương Trình Dự Đoán Giá Nhà ở Thành Phố Hồ Chí Minh")
 st.image("Nen.webp")
 # Hàm tính khoảng cách theo công thức Haversine
 def haversine(lon1, lat1, lon2, lat2):
